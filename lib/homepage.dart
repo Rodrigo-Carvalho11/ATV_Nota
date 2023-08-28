@@ -33,6 +33,11 @@ class _HomePageState extends State<HomePage> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2101),
     );
+    if (picked != null && picked != dataSelecionada) {
+      setState(() {
+        dataSelecionada = picked;
+      });
+    }
   }
 
   @override
@@ -270,16 +275,18 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
-                  Expanded(child: ElevatedButton.icon(onPressed: () {
-                    print("$_nomeC $_cpf $_endereco $_num");
-                    print("$_opcaoSelecionada $dataSelecionada");
-                    print("$_comple");
-                  },
-                  icon: Icon(Icons.save),
-                  label: Text("Cadastrar"),))
+                  Expanded(
+                      child: ElevatedButton.icon(
+                    onPressed: () {
+                      print("$_nomeC $_cpf $_endereco $_num");
+                      print("$_opcaoSelecionada $dataSelecionada");
+                      print("$_comple");
+                    },
+                    icon: Icon(Icons.save),
+                    label: Text("Cadastrar"),
+                  ))
                 ],
               ),
-              
             ],
           ),
         ),
